@@ -1,65 +1,88 @@
-import Image from "next/image";
+"use client";
+import Carousel from "@/components/Carousel";
+import { Element } from "react-scroll";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="scroll-smooth">
+      {/* Hero Section */}
+      <section className="min-h-screen grid grid-cols-4 items-center px-8 gap-6">
+        
+        {/* Left side: Element (spans 2 columns) */}
+        <Element
+          name="home"
+          className="col-span-2 flex flex-col justify-center text-left"
+        >
+          <h1 className="text-5xl font-bold mb-4">Jaden Pathammavong</h1>
+          <p className="text-lg text-gray-600 max-w-lg">
+            Computational Modeling and Data Analytics at Virginia Tech.
           </p>
+        </Element>
+
+        {/* Right side: Carousel (spans 2 columns) */}
+        <main className="col-span-2 flex justify-center">
+          <Carousel />
+        </main>
+      </section>
+
+
+      {/* About Section */}
+      <Element name="about" className="min-h-screen flex flex-col justify-center items-center bg-gray-50 text-center">
+        <h2 className="text-4xl font-bold mb-4">About Me</h2>
+        <p className="max-w-xl text-gray-600">
+        As a third-year student at Virginia Tech studying Computational Modeling and Data Analytics (CMDA), I have a strong interest in the intersection of design, technology, and data.
+        </p>
+        <p className="max-w-xl text-gray-600">
+        In addition to my developing skills in data analysis, visualization, mathematics, and statistics. 
+        I'm currently exploring full-stack programming with React, Next.js, and TailwindCSS.
+        My career interests are consultant, business intelligence analyst, data engineer, or analyst.
+        </p>
+        <p className="max-w-xl text-gray-600">
+        Outside of academics, I practice Kendo, a Japanese martial art that has taught me focus, discipline, and respect. I’m also deeply involved in music, which helps me stay creative and balanced both in life and in problem-solving.
+        </p>
+      </Element>
+
+      {/* Projects Section */}
+      <Element name="projects" className="min-h-screen flex flex-col justify-center items-center text-center">
+        <h2 className="text-4xl font-bold mb-6">Projects</h2>
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
+          <div className="border rounded-lg p-6 shadow hover:shadow-md">
+            <h3 className="text-2xl font-semibold mb-2">College Dataset Exploratory Data Analysis</h3>
+            <p className="text-gray-600 mb-3">
+            This analysis can help inform judgments about enhancing educational outcomes and is crucial for comprehending how financial aid affects
+            student performance. I used R, R markdown, Linear Regression, and Git.
+            </p>
+            <a href="/final_project.pdf" className="text-blue-500 hover:underline" target="_blank">
+              View
+            </a>
+          </div>
+
+          <div className="border rounded-lg p-6 shadow hover:shadow-md">
+            <h3 className="text-2xl font-semibold mb-2">RSVP Form</h3>
+            <p className="text-gray-600 mb-3">
+              Developed a full-stack wedding RSVP website using Next.js, React, and Google Sheets API for real-time guest submissions and tracking.
+            </p>
+            <a href="https://github.com/japath59/rsvp-form" target="_blank" className="text-blue-500 hover:underline">
+            View on Github
+            </a>
+
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </Element>
+
+      {/* Contact Section */}
+      <Element name="contact" className="min-h-screen flex flex-col justify-center items-center bg-gray-50 text-center">
+        <h2 className="text-4xl font-bold mb-4">Contact</h2>
+        <a href="mailto:japath59@vt.edu" className="text-blue-500 hover:underline mb-2">
+          japath59@vt.edu
+        </a>
+        <a href="https://linkedin.com/in/jadenpathammavong" target="_blank" className="text-blue-500 hover:underline mb-2">
+          LinkedIn
+        </a>
+        <a href="https://github.com/japath59" target="_blank" className="text-blue-500 hover:underline mb-2">
+          Github
+        </a>
+      </Element>
     </div>
   );
 }
